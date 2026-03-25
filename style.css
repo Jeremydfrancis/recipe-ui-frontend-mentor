@@ -1,0 +1,259 @@
+/* 1. Use a more-intuitive box-sizing model */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 2. Remove default margin */
+*:not(dialog) {
+  margin: 0;
+}
+
+/* 3. Enable keyword animations */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    interpolate-size: allow-keywords;
+  }
+}
+
+body {
+  /* 4. Increase line-height */
+  line-height: 1.5;
+  /* 5. Improve text rendering */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 6. Improve media defaults */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* 7. Inherit fonts for form controls */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* 8. Avoid text overflows */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/* 9. Improve line wrapping */
+p {
+  text-wrap: pretty;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
+/*
+  10. Create a root stacking context
+*/
+#root,
+#__next {
+  isolation: isolate;
+}
+
+:root {
+  /* Colors */
+  --color-white: oklch(100% 0 0);
+  --color-stone-100: oklch(91% 0.024 74);
+  --color-stone-150: oklch(88% 0.012 74);
+  --color-stone-600: oklch(44% 0.014 60);
+  --color-stone-900: oklch(27% 0.007 55);
+  --color-brown-800: hsl(14, 45%, 36%);
+  --color-rose-800: hsl(332, 51%, 32%);
+  --color-rose-50: hsl(330, 100%, 98%);
+
+  /* Typography */
+  --font-serif: "Young Serif", serif;
+  --font-sans: "Outfit", sans-serif;
+  --font-size-body: 16px;
+  --font-weight-regular: 400;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+}
+
+body {
+  background-color: var(--color-stone-100);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-sans);
+  line-height: 1.5;
+  font-size: 16px;
+  text-wrap: balance;
+  min-height: 100dvh;
+  min-width: 100dvw;
+}
+@media (min-width: 700px) {
+  body {
+    padding: 10dvh 0 10dvh 0;
+    & img {
+      border-radius: 10px;
+    }
+    & .img-main {
+      padding: 2rem 2rem 0 2rem;
+    }
+  }
+}
+section {
+  margin-bottom: 1.5rem !important;
+}
+section:last-of-type {
+  margin: 0 !important;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  letter-spacing: 1px;
+  padding: 0 0 1rem 0;
+}
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--color-brown-800);
+}
+h1 {
+  font-size: 2.2rem;
+  text-wrap-style: stable;
+  line-height: 1;
+  padding: 0 0 1.5rem 0;
+  color: var(--color-stone-900);
+}
+p {
+  padding: 0 0 2rem 0;
+  color: var(--color-stone-600);
+  font-weight: 400;
+  text-wrap-style: stable;
+}
+.card-parent {
+  max-width: 700px;
+  min-width: none;
+  background-color: var(--color-white);
+  border-radius: 20px;
+}
+
+.mobile-pad {
+  padding: 2rem;
+}
+li {
+  color: var(--color-brown-800);
+  text-wrap-style: stable;
+  padding-bottom: 0.5rem;
+}
+.prep-time {
+  background-color: var(--color-rose-50);
+  padding: 1.5rem;
+  border-radius: 10px;
+  display: grid;
+
+  justify-content: start;
+  & h2 {
+    font-size: 22px;
+    letter-spacing: 0px;
+    font-weight: 700;
+    font-family: var(--font-sans);
+    color: var(--color-rose-800);
+  }
+  & ul {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding-right: 1rem;
+    padding-inline-start: 1.7rem;
+
+    & li {
+      list-style-position: inside;
+      display: flex;
+      align-items: flex-start;
+      color: var(--color-rose-800);
+
+      & .bullet-space {
+        color: var(--color-stone-600);
+      }
+    }
+    & li:before {
+      content: "";
+      position: relative;
+      transform: translateY(-50%);
+      top: 25%;
+      border-radius: 50%;
+      margin-top: 0.5rem;
+      margin-right: 0.5rem;
+      left: -1.2rem;
+      width: 6px;
+      height: 6px;
+      background: var(--color-rose-800);
+    }
+  }
+}
+.list-content {
+  color: var(--color-stone-600);
+}
+
+.bottom-border {
+  border-bottom: 1px solid var(--color-stone-150);
+  padding-block-end: 4dvh;
+  & li {
+    margin-left: -1rem;
+    padding-left: 1rem;
+    padding-bottom: 1rem;
+  }
+}
+.nutrition {
+  & p {
+    text-wrap-style: stable;
+  }
+}
+table {
+  min-width: 100%;
+  border-collapse: collapse;
+}
+tr {
+  display: flex;
+  gap: 0px;
+  justify-content: flex-start;
+  padding-inline: 1.8rem;
+  border-bottom: 1px solid var(--color-stone-150);
+  padding-block-end: 2dvh;
+}
+tr:last-child {
+  border-bottom: none;
+}
+td {
+  color: var(--color-stone-600);
+
+  min-width: 50%;
+}
+.bold {
+  color: var(--color-brown-800);
+  font-weight: var(--font-weight-bold);
+}
