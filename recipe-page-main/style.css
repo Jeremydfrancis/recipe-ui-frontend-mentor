@@ -103,9 +103,25 @@ body {
   line-height: 1.5;
   font-size: 16px;
   text-wrap: balance;
+  min-height: 100dvh;
+  min-width: 100dvw;
+}
+@media (min-width: 700px) {
+  body {
+    padding: 10dvh 0 10dvh 0;
+    & img {
+      border-radius: 10px;
+    }
+    & .img-main {
+      padding: 2rem 2rem 0 2rem;
+    }
+  }
 }
 section {
   margin-bottom: 1.5rem !important;
+}
+section:last-of-type {
+  margin: 0 !important;
 }
 h1,
 h2,
@@ -156,7 +172,7 @@ li {
 .prep-time {
   background-color: var(--color-rose-50);
   padding: 1.5rem;
-  border-radius: 20px;
+  border-radius: 10px;
   display: grid;
 
   justify-content: start;
@@ -198,4 +214,46 @@ li {
       background: var(--color-rose-800);
     }
   }
+}
+.list-content {
+  color: var(--color-stone-600);
+}
+
+.bottom-border {
+  border-bottom: 1px solid var(--color-stone-150);
+  padding-block-end: 4dvh;
+  & li {
+    margin-left: -1rem;
+    padding-left: 1rem;
+    padding-bottom: 1rem;
+  }
+}
+.nutrition {
+  & p {
+    text-wrap-style: stable;
+  }
+}
+table {
+  min-width: 100%;
+  border-collapse: collapse;
+}
+tr {
+  display: flex;
+  gap: 0px;
+  justify-content: flex-start;
+  padding-inline: 1.8rem;
+  border-bottom: 1px solid var(--color-stone-150);
+  padding-block-end: 2dvh;
+}
+tr:last-child {
+  border-bottom: none;
+}
+td {
+  color: var(--color-stone-600);
+
+  min-width: 50%;
+}
+.bold {
+  color: var(--color-brown-800);
+  font-weight: var(--font-weight-bold);
 }
